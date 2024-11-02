@@ -53,7 +53,7 @@ while True:
 
         # Сохраняем изображение лица
         face_img = frame[y:y + h, x:x + w]
-        filename = f"/Users/Максим/PycharmProjects/pythonProject/img/face_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}_{i}.jpg"
+        filename = f"face_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}_{i}.jpg"
         cv2.imwrite(filename, face_img)
         print(f"Сохранено лицо: {filename}")
 
