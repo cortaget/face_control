@@ -1,6 +1,7 @@
 import cv2
 import sys
 import datetime as dt
+import os
 from time import sleep
 
 # Путь к файлу с классификатором Хаара для распознавания лиц
@@ -17,6 +18,13 @@ if faceCascade.empty():
 # Захват видео с камеры
 video_capture = cv2.VideoCapture(0)
 anterior = 0
+
+# Путь для сохранения изображений лиц
+save_path = "img"
+
+# Создаем папку img, если её нет
+if not os.path.exists(save_path):
+    os.makedirs(save_path)
 
 # Основной цикл
 while True:
@@ -46,14 +54,14 @@ while True:
     # Рисуем прямоугольники вокруг обнаруженных лиц и сохраняем их
     for i, (x, y, w, h) in enumerate(faces):
         # Рисуем прямоугольник вокруг лица
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
         # Надпись "Лицо обнаружено"
-        cv2.putText(frame, "Лицо обнаружено", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
+        cv2.putText(frame, "winner", (x, y+h+30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_8)
 
-        # Сохраняем изображение лица
+        # Сохраняем изображение лица в папку img
         face_img = frame[y:y + h, x:x + w]
-        filename = f"face_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}_{i}.jpg"
+        filename = os.path.join(save_path, f"face_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}_{i}.jpg")
         cv2.imwrite(filename, face_img)
         print(f"Сохранено лицо: {filename}")
 
