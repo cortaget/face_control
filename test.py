@@ -1,6 +1,7 @@
 import cv2
 import sys
 import datetime as dt
+import os
 from time import sleep
 
 # Путь к файлу с классификатором Хаара для распознавания лиц
@@ -17,6 +18,13 @@ if faceCascade.empty():
 # Захват видео с камеры
 video_capture = cv2.VideoCapture(0)
 anterior = 0
+
+# Путь для сохранения изображений лиц
+save_path = "img"
+
+# Создаем папку img, если её нет
+if not os.path.exists(save_path):
+    os.makedirs(save_path)
 
 # Основной цикл
 while True:
@@ -43,30 +51,25 @@ while True:
         minSize=(30, 30)
     )
 
-    # Рисуем прямоугольники вокруг обнаруженных лиц и сохраняем их
-    for i, (x, y, w, h) in enumerate(faces):
-        # Рисуем прямоугольник вокруг лица
+    # Рисуем прямоугольники вокруг обнаруженных лиц
+    for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-
-        # Надпись "Лицо обнаружено"
         cv2.putText(frame, "Лицо обнаружено", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
-
-        # Сохраняем изображение лица
-        face_img = frame[y:y + h, x:x + w]
-        filename = f"/Users/Максим/PycharmProjects/pythonProject/img/face_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}_{i}.jpg"
-        cv2.imwrite(filename, face_img)
-        print(f"Сохранено лицо: {filename}")
-
-    # Выводим количество лиц при изменении
-    if anterior != len(faces):
-        print(f"Обнаружено лиц: {len(faces)}")
-        anterior = len(faces)
 
     # Отображение видео с наложенными прямоугольниками
     cv2.imshow('Video', frame)
 
+    # Проверка нажатия клавиши
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('a'):  # Нажатие клавиши 'A' для сохранения лиц
+        for i, (x, y, w, h) in enumerate(faces):
+            face_img = frame[y:y+h, x:x+w]
+            filename = os.path.join(save_path, f"face_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}_{i}.jpg")
+            cv2.imwrite(filename, face_img)
+            print(f"Сохранено лицо: {filename}")
+
     # Выход по нажатию клавиши 'q'
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if key == ord('q'):
         break
 
 # Освобождаем ресурсы
