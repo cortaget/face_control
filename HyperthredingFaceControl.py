@@ -110,7 +110,7 @@ def process_folder_images(input_folder, output_folder):
 
 
 if __name__ == "__main__":
-    # Указываем путь к целевому изображению и папке
+    # Указываем путь к целевому изображению и папкемриль
     target_image_path = "face_5.jpg"
     folder_path = "img"  # Путь к папке с изображениями для сравнения
     processed_folder = "processed_images"  # Папка для сохранённых обработанных изображений
