@@ -1,0 +1,20 @@
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting Click
+  Downloading https://www.piwheels.org/simple/click/click-8.1.8-py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.2/98.2 kB 996.0 kB/s eta 0:00:00
+Collecting Pillow
+  Using cached pillow-11.2.1.tar.gz (47.0 MB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: Pillow
+  Building wheel for Pillow (pyproject.toml): started
+  Building wheel for Pillow (pyproject.toml): finished with status 'done'
+  Created wheel for Pillow: filename=pillow-11.2.1-cp311-cp311-linux_armv7l.whl size=1187095 sha256=3ad00d5dabb036b9e63656881231a8659e8952ed830ebcaa4e0a2848fea71f39
+  Stored in directory: /home/max/.cache/pip/wheels/dc/6c/a5/9ba95fb773ed63f6f36779baf2612931788b74bb3a789d1f62
+Successfully built Pillow
+Installing collected packages: Pillow, Click
+Successfully installed Click-8.1.8 Pillow-11.2.1
