@@ -28,7 +28,6 @@ A lightweight face recognition system for Raspberry Pi that automatically detect
 - LED
 - 220-330Ω Resistor
 - Jumper wires
-![image](https://github.com/user-attachments/assets/6cfd6a58-e385-4c75-bfe7-6c97064695af)
 
 ### Software
 - Python 3.x
@@ -64,13 +63,15 @@ A lightweight face recognition system for Raspberry Pi that automatically detect
 
 ## ⚙️ Installation
 
+### Basic Installation
+
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourusername/face-recognition-gpio.git
    cd face-recognition-gpio
    ```
 
-2. Install dependencies:
+2. Install basic dependencies:
    ```bash
    pip install opencv-python numpy RPi.GPIO
    ```
@@ -86,6 +87,60 @@ A lightweight face recognition system for Raspberry Pi that automatically detect
    # OpenCV's default face detector
    wget https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml -O cascade.xml
    ```
+
+### Detailed Installation Instructions
+
+For optimal performance and to resolve all dependencies correctly, follow these comprehensive installation steps:
+
+**1. System Preparation**
+```bash
+# Update system packages  
+sudo apt update && sudo apt upgrade -y  
+
+# Install system dependencies  
+sudo apt install -y \  
+    build-essential cmake pkg-config \  
+    libopenblas-dev liblapack-dev \  
+    python3-opencv python3-numpy python3-scipy \  
+    libx11-dev libatlas-base-dev \  
+    libgtk-3-dev libboost-python-dev  
+```
+
+**2. Create a Virtual Environment**
+```bash
+# Navigate to the working directory  
+cd ~/python3  
+
+# Create and activate a virtual environment  
+python3 -m venv myenv  
+source myenv/bin/activate  
+```
+
+**3. Install Python Libraries**
+```bash
+# Install dlib (may take a while on Raspberry Pi)  
+pip install dlib --no-cache-dir  
+
+# Install face_recognition without automatic dependencies  
+pip install face-recognition-models  
+pip install face_recognition --no-deps  
+
+# Install OpenCV with NumPy 1.x (required for compatibility)  
+pip install opencv-python --index-url=https://www.piwheels.org/simple/  
+pip uninstall -y numpy  
+pip install numpy==1.26.4  # Last stable NumPy 1.x version  
+
+# Install missing dependencies  
+pip install Click>=6.0 Pillow  
+```
+
+**4. Verify Installation**
+```bash
+# Test the facial recognition script  
+python3 faceCut.py  
+```
+
+> **Note:** Installing dlib on Raspberry Pi can take 1-2 hours depending on your Pi model. For Raspberry Pi 3 or earlier models, you may need to increase swap space temporarily to complete the compilation.
 
 ## 🚀 Usage
 
