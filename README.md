@@ -248,5 +248,19 @@ This system is intended for educational and demonstration purposes. For producti
 - Adding event logging
 - Increasing the security of the physical setup
 
+## 🔄 Future Enhancements
+
+- [ ] Web interface for management
+- [ ] Database integration
+- [ ] Email/SMS notifications
+- [ ] Liveness detection
+- [ ] Integration with electronic locks
+- [ ] User registration interface
+- [ ] Performance optimizations
+
+## 📜 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 
 ⭐️ If you found this useful, please star the repository!
