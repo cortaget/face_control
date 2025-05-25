@@ -57,9 +57,8 @@ A lightweight face recognition system for Raspberry Pi that automatically detect
    - Connect the anode (longer leg) of the LED to GPIO16 through a resistor
    - Connect the cathode (shorter leg) to any GND pin
 
-<p align="center">
-  <img src="/api/placeholder/400/320" alt="Circuit Diagram" />
-</p>
+![image](https://github.com/user-attachments/assets/c1502d1c-437f-4197-8731-e8ec732e1b33)
+
 
 ## ⚙️ Installation
 
@@ -248,19 +247,14 @@ This system is intended for educational and demonstration purposes. For producti
 - Adding event logging
 - Increasing the security of the physical setup
 
-## 🔄 Future Enhancements
-
-- [ ] Web interface for management
-- [ ] Database integration
-- [ ] Email/SMS notifications
-- [ ] Liveness detection
-- [ ] Integration with electronic locks
-- [ ] User registration interface
-- [ ] Performance optimizations
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License
+
+Copyright (c) [2025] [cortaget]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
 
 
 ⭐️ If you found this useful, please star the repository!
