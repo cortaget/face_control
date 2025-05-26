@@ -5,6 +5,11 @@
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.x-orange.svg)
 ![Platform](https://img.shields.io/badge/platform-Raspberry%20Pi-red.svg)
 
+
+![PLAKAT](https://github.com/user-attachments/assets/7e7bbd60-3c99-4b7f-8256-e869e4b43746)
+
+
+
 A lightweight face recognition system for Raspberry Pi that automatically detects faces via camera, compares them against a reference database, and controls an LED indicator to signal access permission.
 
 <p align="center">
